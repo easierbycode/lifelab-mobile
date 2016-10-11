@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Consent page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!--<ion-title>Consent</ion-title>-->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-slides #consentSlider [options]='sliderOptions'>
+    <ion-slide *ngFor='let page of pages | async'>
+      <div class="divImage" *ngIf='page.icon'>
+        <ion-icon [name]='page.icon'></ion-icon>
+      </div>
+
+      <h2 [innerHTML]="page.title"></h2>
+      <p [innerHTML]="sanitizer.bypassSecurityTrustHtml( page.content )"></p>
+
+      <button *ngIf='page.learnMore' (click)='showLearnMoreModal({ learnMoreText:page.learnMore })' ion-button block clear margin-bottom margin-top>Learn more</button>
+      
+      <div padding>
+        <button (click)='nextSlide()' ion-button block>Next</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,32 @@
+<!--
+  Generated template for the EligibilityPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!--<ion-title>Eligibility</ion-title>-->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides #eligibilitySlider [options]='slideOptions'>
+
+    <ion-slide *ngFor='let slide of slides | async'>
+      <div class="divImage" *ngIf='slide.icon'>
+        <ion-icon name="{{ slide.icon }}"></ion-icon>
+      </div>
+
+      <h2 [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="sanitizer.bypassSecurityTrustHtml( slide.content )"></p>
+    </ion-slide>
+
+  </ion-slides>
+
+  <button (click)='showEligibilityQuestions()' ion-button block>Join Study</button>
+  <button (click)='showLogin()' ion-button clear block>Already Participating?</button>
+</ion-content>

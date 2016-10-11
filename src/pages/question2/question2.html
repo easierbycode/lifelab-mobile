@@ -1,0 +1,41 @@
+<!--
+  Generated template for the Question2Page page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Question 2</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+      <ion-card-header style='white-space: normal'>
+        If I rub my belly and say "Lifelab" in a mirror 3 times I will become instantly healthier.
+      </ion-card-header>
+      <ion-card-content>
+        <ion-segment [(ngModel)]='answer' text-uppercase>
+          <ion-segment-button value='true'>true</ion-segment-button>
+          <ion-segment-button value='false'>false</ion-segment-button>
+        </ion-segment>
+        
+        <div [ngSwitch]='answer'>
+          <div *ngSwitchCase="'true'">
+            <p padding-top>You are <b>incorrect</b>.</p>
+          </div>
+
+          <div *ngSwitchCase="'false'">
+            <p padding-top>You are <b>correct</b>.</p>
+            <button (click)='showQuestionsComplete()' ion-button margin-top block secondary>Next</button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Sleep
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span showWhen="ios">Cancel</span>
+        <ion-icon name="arrow-back" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides>
+    <ion-slide>
+      <ion-list no-lines>
+        <ion-item>
+          <chart [options]='options' style='height: 140px'></chart>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

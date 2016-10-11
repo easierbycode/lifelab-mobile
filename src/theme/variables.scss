@@ -1,0 +1,104 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color:        #000;
+$background-color:  #fff;
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #964600,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  favorite:   #69BB7B,
+  orange:     #ef9f39
+);
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionicons";
+
+.header {
+  align-items: center;
+  color: #666;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.1rem;
+  min-height: 4rem;
+  text-transform: uppercase;
+}
+
+[ion-button] {
+  text-transform: uppercase !important;
+}
+
+.toolbar-background, .toolbar-background-md {
+  background-color: #EF9F39 !important;
+  border: none !important;
+}
+
+.header-md::after {
+  background-image: none !important;
+}
+
+.toolbar-title {
+  color: #ffffdf !important;
+}
+
+ion-header [ion-button] {
+  color: #ffffdf;
+}
+
+.divImage {
+  display: flex;
+  height: 175px;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon {
+    font-size: 90px;
+  }
+}
+
+.green {
+  color: #28a54c;
+}
+
+button:not(.button-clear) .button-inner {
+  color: #ffffdf !important;
+}

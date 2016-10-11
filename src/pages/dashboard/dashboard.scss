@@ -1,0 +1,84 @@
+page-dashboard {
+  // .toolbar-background {
+  //   background-color: #EF9F39;
+  //   border: none;
+  // }
+
+  // .toolbar-title {
+  //   color: #ffffdf;
+  // }
+
+  .masthead {
+    background: linear-gradient(to bottom, #EF9F39 0%, #c97913 100%);
+    // background-color: #EF9F39;
+    color: #ffffdf;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding-top: 1.3rem;
+    top: 0;
+
+    .header {
+      color: #ffffdf;
+    }
+  }
+  // ion-content {
+  //   background: linear-gradient(to bottom, #EF9F39 0%, #c97913 100%);
+  //   color: #ffffdf;
+  // }
+
+  [ion-button] {
+    background: linear-gradient(rgb(150, 70, 0) 0%, rgb(124, 44, 0) 100%);
+    border: 1px solid rgb(73, 0, 0);
+    color: #ffffdf;
+  }
+
+  ion-col {
+    h1 {
+      font-weight: 300;
+    }
+  }
+
+  .activity-summary .header {
+    font-weight: 300;
+    min-height: inherit;
+  }  
+
+}
+
+chart {
+  width: 95%;
+}
+
+.highcharts-legend-item rect {
+  font-size: 10px;
+  rx: 0;
+  ry: 0;
+}
+
+.highcharts-legend-item:first-child rect {
+  height: 18px;
+  y: 1
+}
+
+.highcharts-legend-item:last-child rect {
+  height: 6px;
+  y: 7
+}
+
+.highcharts-series rect {
+  font-size: 10px;
+  x: 0;
+}
+
+.highcharts-series.highcharts-series-0 rect {
+  width: 3.3em;
+}
+
+.highcharts-series.highcharts-series-1 rect {
+  width: 2.2em;
+}
+
+.highcharts-series.highcharts-series-2 rect {
+  width: 1.1em;
+}

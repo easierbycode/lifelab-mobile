@@ -1,0 +1,71 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit:100';
+
+/* Change Autocomplete styles in Chrome*/
+@-webkit-keyframes autofill {
+    to {
+        color: #fff;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+.login {
+    background-size: cover;
+
+    .text-input {
+      color: #fff;
+      letter-spacing: 0.25rem;
+      padding: 20px 10px;
+    }
+ 
+    ion-item {
+        border-radius: 30px !important;
+        margin-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+ 
+    ion-list {
+        margin: 0;
+    }
+ 
+    .login-button {
+        border-radius: 30px;
+        border: 1px solid transparent;
+    }
+
+    .hero {
+      height: 244px;
+      text-align: center;
+
+      .hero-icon {
+        border-radius: 50%;
+        color: #fff;
+        font-size: 96px;
+        padding: 10px 30px;
+
+        &.orange-bg {
+          background-color: #ef9f39;
+        }
+        
+        &+ h1 {
+          color: #4b4d50;
+          font-family: 'Kanit', sans-serif;
+          font-size: 8rem;
+          letter-spacing: 0.25rem;
+          text-shadow: 0 1px 0 rgba(230, 164, 70, 0.45);
+
+          span {
+            font-weight: bold;
+            &.orange {
+              color: #ef9f39;
+              text-shadow: initial;
+            }
+          }
+        }
+      }
+    }
+}

@@ -1,0 +1,48 @@
+<!--
+  Generated template for the Dashboard page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class='masthead' [@flyInTopSlow]="mastheadState">
+    <ion-grid *ngIf='(deviceIsSetup | async)?.userID' class='activity-summary'>
+      <ion-row>
+        <ion-col width-50 text-center>
+          <div class='header'>steps</div>
+          <h2>{{ (dailyActivity | async)[0].steps }}</h2>
+        </ion-col>
+        <ion-col (click)='openModal( sleepSummaryDate )' width-50 text-center>
+          <div class='header'>sleep</div>
+          <h2>{{ totalSleep }}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  
+
+    <ion-grid *ngIf='!(deviceIsSetup | async)?.userID'>
+      <ion-row>
+        <ion-col width-50>
+          <div class='header'>No device found</div>
+        </ion-col>
+        <ion-col width-50>
+          <button (click)='openWithingsOauth()' ion-button icon-left outline small>
+            <ion-icon name='add'></ion-icon>
+            Add device
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
