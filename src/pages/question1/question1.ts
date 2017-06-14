@@ -15,7 +15,7 @@ import { QuestionsComplete } from '../questions-complete/questions-complete';
 })
 export class Question1 {
 
-  answer: boolean;
+  answer: string;
   
   constructor(public navCtrl: NavController) {}
 

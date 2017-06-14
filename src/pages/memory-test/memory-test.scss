@@ -1,0 +1,129 @@
+page-memory-test {
+  
+  .content-ios, .content-md, .content-wp {
+    background-color: #2b87d1;
+    color: #fff;
+  }
+  
+  .memory-test {
+    background: #2b87d1;
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .memory-test .instructions {
+    margin: 0 0 20px;
+  }
+  .memory-test .hud,
+  .memory-test .big-score {
+    margin: 20px 0;
+  }
+  .memory-test .score {
+    display: inline-block;
+    margin: 0px 10px;
+    font-size: 18px;
+  }
+  .memory-test .big-score .score {
+    font-size: 180%;
+  }
+  .memory-test .squares {
+    position: relative;
+    -webkit-transform: translateZ(0px);
+    -moz-transform: translateZ(0px);
+    -o-transform: translateZ(0px);
+    -ms-transform: translateZ(0px);
+    transform: translateZ(0px);
+  }
+  .memory-test .squares .square {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 4px solid rgba(0,0,0,0);
+    -webkit-background-clip: padding !important;
+    -moz-background-clip: padding !important;
+    background-clip: padding-box !important;
+    -webkit-backface-visibility: visible;
+    -moz-backface-visibility: visible;
+    -ms-backface-visibility: visible;
+    backface-visibility: visible;
+    -webkit-transform: rotateX(0deg) translateZ(1px);
+    -moz-transform: rotateX(0deg) translateZ(1px);
+    -o-transform: rotateX(0deg) translateZ(1px);
+    -ms-transform: rotateX(0deg) translateZ(1px);
+    transform: rotateX(0deg) translateZ(1px);
+    -webkit-transition: -webkit-transform ease-out 0.3s;
+    -moz-transition: -moz-transform ease-out 0.3s;
+    -o-transition: -o-transform ease-out 0.3s;
+    -ms-transition: -ms-transform ease-out 0.3s;
+    transition: transform ease-out 0.3s;
+    z-index: 1;
+  }
+  .memory-test .squares .square.active {
+    background: #fff;
+    -webkit-transform: rotateX(180deg) translateZ(1px);
+    -moz-transform: rotateX(180deg) translateZ(1px);
+    -o-transform: rotateX(180deg) translateZ(1px);
+    -ms-transform: rotateX(180deg) translateZ(1px);
+    transform: rotateX(180deg) translateZ(1px);
+  }
+  .memory-test .squares .square:active:not(.active) {
+    // background: rgba(255,255,255,0.5);
+  }
+  .memory-test .squares .square.error {
+    background: rgba(0,0,0,0.5);
+  }
+  .memory-test .splash,
+  .memory-test .gameover {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    -webkit-transform: translateZ(100px);
+    -moz-transform: translateZ(100px);
+    -o-transform: translateZ(100px);
+    -ms-transform: translateZ(100px);
+    transform: translateZ(100px);
+  }
+  .memory-test .splash-inner,
+  .memory-test .gameover-inner {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-shadow: 0px 0px 50px #164369;
+  }
+  .memory-test .splash-inner {
+    font-size: 70px;
+  }
+  .memory-test .gameover h2 {
+    font-size: 300%;
+  }
+  .memory-test .gameover .final-score .score {
+    display: block;
+    margin: 20px 0;
+    font-size: 150%;
+  }
+  .memory-test .gameover .cta {
+    margin: 20px 0;
+  }
+}

@@ -76,8 +76,9 @@ export class Login {
 
   doLogin( credentials ) {
     this.auth.login( credentials ).then(( authData : any ) => {
+      localStorage.userEmail    = authData.auth.email;
       localStorage.firebaseUid  = authData.uid;
-      localStorage.authToken    = authData.auth.kd;
+      // localStorage.authToken    = authData.auth.kd;
       this.loginSuccess();
     });
   }

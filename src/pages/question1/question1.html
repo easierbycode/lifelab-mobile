@@ -14,30 +14,37 @@
 
 
 <ion-content padding>
-  <h4>Please answer a few review questions to ensure that you understand the consent form.</h4>
+  <ion-slides>
+    <ion-slide>
+      <h5>Please answer a few review questions to ensure that you understand the consent form.</h5>
 
-  <ion-list>
-    <ion-card>
-      <ion-card-header style='white-space: normal'>
-        Once I start participating in the study, I am free to withdraw at any time but the data I contributed will not be deleted.
-      </ion-card-header>
-      <ion-card-content>
-        <ion-segment [(ngModel)]='answer' text-uppercase>
-          <ion-segment-button value='true'>true</ion-segment-button>
-          <ion-segment-button value='false'>false</ion-segment-button>
-        </ion-segment>
-        
-        <div [ngSwitch]='answer'>
-          <div *ngSwitchCase="'true'">
-            <p padding-top>You are <b>correct</b>. You are free to withdraw at any time from the study. To withdraw, choose "Leave Study" on the apps “Profile” page, delete the app from your phone, or contact the researchers. Data you have contributed up until you withdraw will stay in the study but no further data will be gathered.</p>
-            <button ion-button (click)='showQuestionsComplete()' margin-top block secondary>Next</button>
-          </div>
+      <ion-list padding-top>
+        <ion-card>
+          <ion-card-header style='white-space: normal'>
+            Once I start participating in the study, I am free to withdraw at any time but the data I contributed will not be deleted.
+          </ion-card-header>
+          <ion-card-content>
+            <ion-segment [(ngModel)]='answer' text-uppercase>
+              <ion-segment-button value='true'>true</ion-segment-button>
+              <ion-segment-button value='false'>false</ion-segment-button>
+            </ion-segment>
+            
+            <div [ngSwitch]='answer'>
+              <div *ngSwitchCase="'true'">
+                <p padding-top>You are <b>correct</b>. You are free to withdraw at any time from the study. To withdraw, choose "Leave Study" on the apps “Profile” page, delete the app from your phone, or contact the researchers. Data you have contributed up until you withdraw will stay in the study but no further data will be gathered.</p>
+              </div>
 
-          <div *ngSwitchCase="'false'">
-            <p padding-top>You are <b>incorrect</b>.</p>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+              <div *ngSwitchCase="'false'">
+                <p padding-top>You are <b>incorrect</b>.</p>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+
+<ion-footer *ngIf="answer == 'true'" padding-bottom class='bottom-bar'>
+  <button ion-button (click)='showQuestionsComplete()' block>Next</button>
+</ion-footer>

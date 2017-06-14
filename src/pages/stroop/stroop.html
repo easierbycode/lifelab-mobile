@@ -1,0 +1,64 @@
+<!--
+  Generated template for the Stroop page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!--<ion-title>Stroop</ion-title>-->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-slides>
+    <ion-slide *ngIf='totalScore == undefined'>
+      
+      <ion-card *ngIf='game.started == true'>
+        <ion-card-content text-center>
+          <ion-card-title [ngStyle]="{'color': game.colorClass}">
+            {{ game.colorText }}
+            <span [ngStyle]="{'color': icon.color}">
+              <ion-icon [name]='icon.icon'></ion-icon>
+            </span>
+          </ion-card-title>
+          <div>
+            <button (click)="clicked('g')" ion-button block color='green'>green</button>
+            <button (click)="clicked('r')" ion-button block color='red'>red</button>
+            <button (click)="clicked('o')" ion-button block color='orange2'>orange</button>
+            <button (click)="clicked('b')" ion-button block color='blue'>blue</button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-list *ngIf='game.started == false' no-lines>
+        <ion-item text-left><span class='header'>Instructions</span></ion-item>
+        <ion-item>
+          <ion-label style='white-space:normal'>
+            Pick the color of the text, NOT the color it spells
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide *ngIf='totalScore >= 0'>
+      <div class='divImage'>
+        <ion-icon name='checkmark-circle' color='favorite'></ion-icon>
+      </div>
+      
+      <h2>Great Job!</h2>
+
+      <p>{{ maxQuestions }}/{{ game.rightCount }} correct.  Average response {{ avgResponseTime | number:'.2-2' }} seconds.</p>
+
+      <p *ngIf='taskId != undefined'>Test results have been linked to your account!</p>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer padding-bottom class='bottom-bar'>
+  <button *ngIf='totalScore >= 0' (click)='dismiss()' ion-button block>Done</button>
+  <button *ngIf='totalScore == undefined && game.started == false' (click)='start()' ion-button block>Start</button>
+</ion-footer>

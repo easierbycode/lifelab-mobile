@@ -1,0 +1,47 @@
+<!--
+  Generated template for the TestChoices page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Practice Tests</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button (click)='showNumberMemory()' ion-item mode='ios'>
+      <ion-avatar item-left>
+        <img src="assets/images/number-test.png">
+      </ion-avatar>
+      <h2>Number Memory</h2>
+      <p>Remember the longest number you can.</p>
+    </button>
+    <button (click)='showReactionTime()' ion-item mode='ios'>
+      <ion-avatar item-left>
+        <img src="assets/images/reaction-test.png">
+      </ion-avatar>
+      <h2>Reaction Time</h2>
+      <p>Test your visual reflexes.</p>
+    </button>
+    <button (click)='showStroop()' ion-item mode='ios'>
+      <ion-avatar item-left>
+        <img src="assets/images/stroop-test.png">
+      </ion-avatar>
+      <h2>Stroop Test</h2>
+      <p>Pick the color of the text, NOT the color it spells.</p>
+    </button>
+    <button (click)='showVisualMemory()' ion-item mode='ios'>
+      <ion-avatar item-left>
+        <img src="assets/images/pattern-test.png">
+      </ion-avatar>
+      <h2>Visual Memory</h2>
+      <p>Remember an increasingly large board of squares.</p>
+    </button>
+  </ion-list>
+</ion-content>

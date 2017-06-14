@@ -1,0 +1,88 @@
+page-number-memory-test {
+  
+  .content-ios, .content-md, .content-wp {
+    background-color: #2b87d1;
+    color: #fff;
+  }
+  
+  .swiper-slide img.test-hero-badge {
+    height: 60px;
+    width: 60px;
+  }
+  
+  .button.start {
+    margin-top: 40px;
+  }
+  
+  .number-memory-test {
+    background: #2b87d1;
+  }
+  .number-memory-test.correct {
+    animation: blueToGreen 1s forwards;
+  }
+  .number-memory-test.incorrect {
+    animation: redToBlue 1s forwards;
+  }
+  .number-memory-test input[type=number] {
+    background: rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 48px;
+    border: 0px !important;
+    outline: 0px !important;
+    appearance: none;
+  }
+  .number-memory-test .big-number {
+    font-size: 100px;
+  }
+  .number-memory-test .test-center {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+  .number-memory-test form div {
+    margin: 10px 0;
+  }
+  .number-memory-test .answers .label {
+    font-size: 50%;
+  }
+  .number-memory-test .actual-answer,
+  .number-memory-test .user-answer,
+  .number-memory-test .level {
+    margin: 0px 0px 15px 0;
+    font-size: 40px;
+  }
+  .number-memory-test .level {
+    font-size: 60px;
+    margin: 30px 0;
+  }
+  .number-memory-test .wrong {
+    color: #000;
+    text-decoration: line-through;
+  }
+  .number-memory-test .number-timer-container {
+    background: rgba(0,0,0,0.1);
+    width: 100px;
+    margin: 8px auto 0;
+  }
+  .number-memory-test .number-timer-container .number-timer-bar {
+    height: 4px;
+    background: #fff;
+  }
+  @keyframes redToBlue {
+    from {
+      background: #ce2636;
+    }
+    to {
+      background: #2b87d1;
+    }
+  }
+  @keyframes blueToGreen {
+    from {
+      background: #2b87d1;
+    }
+    to {
+      background: #4bdb6a;
+    }
+  }
+}

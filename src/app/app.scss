@@ -1,0 +1,130 @@
+.faint-label {
+  color: rgba(255,255,255,0.6);
+}
+
+.pulse-faint {
+  animation: pulse-faint 1s ease-in-out alternate infinite;
+}
+
+.test-hero-badge {
+  border: 2px solid #fff;
+  background: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+@media (min-width: 700px) {
+  .test-hero-badge {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@keyframes pulse-faint {
+  from {
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.header {
+  align-items: center;
+  color: #666;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.1rem;
+  min-height: 4rem;
+  text-transform: uppercase;
+}
+
+[ion-button] {
+  text-transform: uppercase !important;
+
+  &:not(.button-clear):not(.alert-button):not(.next-question) {
+    border-radius: 30px;
+    border: 1px solid transparent;
+
+    &:not([color]) .button-inner {
+      color: #ffffdf !important;
+    }
+  }
+
+  &[block] {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+}
+
+.toolbar-background, .toolbar-background-md {
+  background-color: color($colors, orange) !important;
+  border: none !important;
+}
+
+.header-md::after {
+  background-image: none !important;
+}
+
+.toolbar-title {
+  color: #ffffdf !important;
+}
+
+ion-header [ion-button] {
+  color: #ffffdf;
+}
+
+.divImage {
+  display: flex;
+  height: 175px;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon {
+    // color: #af5f00;
+    font-size: 150px;
+  }
+
+  ion-icon:not([color]) {
+    color: #af5f00;
+  }
+}
+
+.green-bg {
+  background-color: color($colors, green) !important;
+}
+.blue-bg {
+  background-color: color($colors, blue) !important;
+}
+.red-bg {
+  background-color: color($colors, red) !important;
+}
+
+.green {
+  color: color($colors, favorite) !important;
+}
+
+h2:not(.alert-title) {
+  font-size: 3.0rem !important;
+}
+
+ion-footer {
+  &::before {
+    background-image: none !important;
+  }
+
+  &.bottom-bar [ion-button] {
+    // margin: 0 auto 5px;
+    margin-bottom: 5px;
+    // width: 90%;
+  }
+}
+
+.focus-outline :focus {
+  outline: none !important;
+}

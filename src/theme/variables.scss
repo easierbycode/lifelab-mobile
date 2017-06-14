@@ -29,7 +29,11 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   favorite:   #69BB7B,
-  orange:     #ef9f39
+  orange:     #ef9f39,
+  green:      #26a69a,
+  red:        #f44336,
+  orange2:    #ff9800,
+  blue:       #2196F3
 );
 
 
@@ -50,55 +54,3 @@ $colors: (
 
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
-
-.header {
-  align-items: center;
-  color: #666;
-  display: flex;
-  font-size: 1.2rem;
-  font-weight: 500;
-  justify-content: center;
-  letter-spacing: 0.1rem;
-  min-height: 4rem;
-  text-transform: uppercase;
-}
-
-[ion-button] {
-  text-transform: uppercase !important;
-}
-
-.toolbar-background, .toolbar-background-md {
-  background-color: #EF9F39 !important;
-  border: none !important;
-}
-
-.header-md::after {
-  background-image: none !important;
-}
-
-.toolbar-title {
-  color: #ffffdf !important;
-}
-
-ion-header [ion-button] {
-  color: #ffffdf;
-}
-
-.divImage {
-  display: flex;
-  height: 175px;
-  justify-content: center;
-  align-items: center;
-
-  ion-icon {
-    font-size: 90px;
-  }
-}
-
-.green {
-  color: #28a54c;
-}
-
-button:not(.button-clear) .button-inner {
-  color: #ffffdf !important;
-}

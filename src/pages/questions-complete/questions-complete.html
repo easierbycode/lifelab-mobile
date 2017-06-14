@@ -17,19 +17,21 @@
   <ion-slides>
 
     <ion-slide>
-      <div class='divImage'>
-        <span class='green'>
-          <ion-icon name='checkmark'></ion-icon>
-        </span>
-      </div>
+      
 
       <h2>Great Job!</h2>
       <p>You answered all the questions correctly. Tap Next to continue.</p>
       
-      <div padding margin-top>
-        <button (click)='showNameCapture()' ion-button block>Next</button>
+      <div class='divImage'>
+        <!--<span class='green'>-->
+          <ion-icon name='checkmark-circle' color='favorite'></ion-icon>
+        <!--</span>-->
       </div>
     </ion-slide>
 
   </ion-slides>
 </ion-content>
+
+<ion-footer padding-bottom class='bottom-bar'>
+  <button (click)='showNameCapture()' ion-button block>Next</button>
+</ion-footer>

@@ -1,0 +1,43 @@
+<ion-content>
+  <ion-slides>
+    <ion-slide *ngIf="view == 'instructions'" (click)="clickedBg()" class='blue-bg' padding>
+      <div class='divImage'>
+        <ion-icon name='finger-print' color='light'></ion-icon>
+      </div>
+      <h2>Tap to start</h2>
+      <p>When the background turns green, tap as quickly as you can.</p>
+    </ion-slide>
+
+    <ion-slide *ngIf="view == 'go'" (click)='clickedBg()' class='green-bg'>
+      <div class='divImage'>
+        <ion-icon name='finger-print' color='light'></ion-icon>
+      </div>
+      
+      <h2>Tap!</h2>
+    </ion-slide>
+
+    <ion-slide *ngIf="view == 'waiting'" (click)='clickedBg()' class='red-bg'>
+      <div class='divImage'>
+        <ion-icon name='hand' color='light'></ion-icon>
+      </div>
+      
+      <h2>Wait for green</h2>
+    </ion-slide>
+
+    <ion-slide *ngIf="view == 'results'" (click)='clickedBg()' class='blue-bg'>
+      <div class='divImage'>
+        <ion-icon name='checkmark-circle' color='favorite'></ion-icon>
+      </div>
+      
+      <h2>Great Job!</h2>
+
+      <p>Average response {{ tapsAvgTime | number:'.2-2' }} seconds.</p>
+
+      <p *ngIf='taskId != undefined'>Test results have been linked to your account!</p>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer *ngIf="view == 'results'" padding-bottom class='bottom-bar'>
+  <button (click)='dismiss()' ion-button block clear color='light'>Done</button>
+</ion-footer>

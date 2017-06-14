@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="memory-test ng-cloak">
+    <div class="ingame">
+      <div class="instructions">Memorize the squares!</div>
+      <div class="hud">
+        <div class="score"><span class="faint-label">Level |</span> {{testManager.stageNum}}</div>
+        <div class="score"><span class="faint-label">Lives |</span> {{testManager.remainingLives}}</div>
+        <div class="score"><span class="faint-label">Combo |</span> x{{testManager.combo}}</div>
+      </div>
+      <div class="big-score">
+        <div class="score">{{testManager.score}}<span class="faint-label"> points</span></div>
+      </div>
+      <div class="squares">
+        <div class="square-row" *ngFor='let row of testManager.getDisplaySquares();let parentIndex = index'>
+          <div class="square" [ngClass]="testManager.classesForSquare(childIndex, parentIndex)" (click)="testManager.clickedSquare(childIndex, parentIndex)" *ngFor="let x of row;let childIndex = index" [ngStyle]="testManager.individualSquareWidth()"></div>
+        </div>
+        <div class="splash" (click)="testManager.fsm.start()" [hidden]="testManager.fsm.current != &#39;splash&#39;">
+          <div class="splash-inner"><img class="pulse-faint test-hero-badge" src="assets/images/pattern-test.png" /><br />Tap to start</div>
+        </div>
+        <div class="gameover" [hidden]="testManager.fsm.current != &#39;gameover&#39;">
+          <div class="gameover-inner">
+            <h2>Memory Test</h2>
+            <div class="final-score">
+              <div class="score level"><span class="faint-label">Highest level:</span> {{testManager.highestStage}}</div>
+              <div class="score total"><span class="faint-label">Score:</span> {{testManager.score}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="testManager.fsm.current == &#39;gameover&#39;" padding-bottom class='bottom-bar'>
+  <button (click)='dismiss()' ion-button block clear color='light'>Done</button>
+</ion-footer>

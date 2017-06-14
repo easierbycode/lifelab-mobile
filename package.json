@@ -45,5 +45,8 @@
       "locator": "ios"
     }
   ],
-  "description": "lifelab-mobile: An Ionic project"
+  "description": "lifelab-mobile: An Ionic project",
+  "config": {
+    "ionic_copy": "./config/copy.config.js"
+  }
 }

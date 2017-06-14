@@ -8,50 +8,58 @@
 
   <ion-navbar>
     <!--<ion-title>Eligibility Questions</ion-title>-->
-    <ion-buttons *ngIf='allSelected' end>
+    <!--<ion-buttons *ngIf='allSelected' end>
       <button ion-button (click)='showEligibilityResult()'>Next</button>
-    </ion-buttons>
+    </ion-buttons>-->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-card>
-      <ion-card-header>
-        Are you 18 years or older?
-      </ion-card-header>
-      <ion-card-content>
-        <ion-segment [(ngModel)]='is18' (ionChange)='enableNextIfAllSelected()' text-uppercase>
-          <ion-segment-button value='yes'>yes</ion-segment-button>
-          <ion-segment-button value='no'>no</ion-segment-button>
-        </ion-segment>
-      </ion-card-content>
-    </ion-card>
+  <ion-slides>
+    <ion-slide>
+      <ion-list>
+        <ion-card>
+          <ion-card-header>
+            Are you 18 years or older?
+          </ion-card-header>
+          <ion-card-content>
+            <ion-segment [(ngModel)]='is18' (ionChange)='enableNextIfAllSelected()' text-uppercase>
+              <ion-segment-button value='yes'>yes</ion-segment-button>
+              <ion-segment-button value='no'>no</ion-segment-button>
+            </ion-segment>
+          </ion-card-content>
+        </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        Do you live in the United States of America?
-      </ion-card-header>
-      <ion-card-content>
-        <ion-segment [(ngModel)]='isCitizen' (ionChange)='enableNextIfAllSelected()' text-uppercase>
-          <ion-segment-button value='yes'>yes</ion-segment-button>
-          <ion-segment-button value='no'>no</ion-segment-button>
-        </ion-segment>
-      </ion-card-content>
-    </ion-card>
+        <ion-card>
+          <ion-card-header>
+            Do you live in the United States of America?
+          </ion-card-header>
+          <ion-card-content>
+            <ion-segment [(ngModel)]='isCitizen' (ionChange)='enableNextIfAllSelected()' text-uppercase>
+              <ion-segment-button value='yes'>yes</ion-segment-button>
+              <ion-segment-button value='no'>no</ion-segment-button>
+            </ion-segment>
+          </ion-card-content>
+        </ion-card>
 
-    <ion-card>
-      <ion-card-header>
-        Can you read and understand English in order to provide informed consent and follow the instructions?
-      </ion-card-header>
-      <ion-card-content>
-        <ion-segment [(ngModel)]='isLiterate' (ionChange)='enableNextIfAllSelected()' text-uppercase>
-          <ion-segment-button value='yes'>yes</ion-segment-button>
-          <ion-segment-button value='no'>no</ion-segment-button>
-        </ion-segment>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+        <ion-card>
+          <ion-card-header>
+            Can you read and understand English in order to provide informed consent and follow the instructions?
+          </ion-card-header>
+          <ion-card-content>
+            <ion-segment [(ngModel)]='isLiterate' (ionChange)='enableNextIfAllSelected()' text-uppercase>
+              <ion-segment-button value='yes'>yes</ion-segment-button>
+              <ion-segment-button value='no'>no</ion-segment-button>
+            </ion-segment>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+
+<ion-footer padding-bottom class='bottom-bar' *ngIf='allSelected'>
+  <button ion-button block (click)='showEligibilityResult()'>Next</button>
+</ion-footer>

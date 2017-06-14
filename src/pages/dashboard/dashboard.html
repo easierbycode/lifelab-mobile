@@ -14,13 +14,22 @@
 
 
 <ion-content padding>
+  
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="menu"></ion-icon></button>
+    <!-- for some reason fab buttons are presented in reverse order -->
+    <ion-fab-list side="top">
+      <button ion-fab (click)='signOut( fab )'><ion-icon name="log-out"></ion-icon></button>
+      <button ion-fab (click)='openTestChoices( fab )'><ion-icon name="clipboard"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 
   <div class='masthead' [@flyInTopSlow]="mastheadState">
     <ion-grid *ngIf='(deviceIsSetup | async)?.userID' class='activity-summary'>
       <ion-row>
         <ion-col width-50 text-center>
           <div class='header'>steps</div>
-          <h2>{{ (dailyActivity | async)[0].steps }}</h2>
+          <h2>{{ (dailyActivity | async)[0]?.steps }}</h2>
         </ion-col>
         <ion-col (click)='openModal( sleepSummaryDate )' width-50 text-center>
           <div class='header'>sleep</div>
@@ -45,4 +54,23 @@
       </ion-row>
     </ion-grid>
   </div>
+
+  <ion-card [@slideInRight]="mastheadState">
+    <ion-card-header style='padding:0'>
+      <ion-item>
+        <ion-icon color='danger' *ngIf='activeTasks?.length > 0' large item-left name='notifications-outline'></ion-icon>
+        <ion-icon color='favorite' *ngIf='activeTasks?.length == 0' large item-left name='notifications-outline'></ion-icon>
+        <p>Active Tasks</p>
+        <h2 color='danger' *ngIf='activeTasks?.length > 0'>{{ activeTasks?.length }}</h2>
+        <h2 color='favorite' *ngIf='activeTasks?.length == 0'>0</h2>
+      </ion-item>
+    </ion-card-header>
+    <ion-list *ngFor='let task of activeTasks'>
+      <button (click)='showTaskModal( task )' ion-item mode='ios'>
+        <ion-icon color='danger' [name]='getTaskIcon( task.chore )' item-left></ion-icon>
+        {{ task.title }}
+      </button>
+    </ion-list>
+  </ion-card>
+
 </ion-content>

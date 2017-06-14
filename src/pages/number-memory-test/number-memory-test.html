@@ -1,0 +1,64 @@
+<ion-content text-center padding>
+  <ion-slides>
+    <ion-slide>
+      <!--<div class="number-memory-test shared-test ng-cloak" hb-refocusable="" ng-class="test.getMainClass()" ng-controller="NumberMemoryCtrl as test" ng-keydown="test.onKeydown($event)" tabindex="1">-->
+      <!--<div class="number-memory-test shared-test ng-cloak" [ngClass]="getMainClass()" (keypress)="onKeydown($event)" tabindex="1">-->
+      <div class="number-memory-test shared-test ng-cloak" [ngClass]="getMainClass()" tabindex="1">
+        <div [ngSwitch]="state">
+          <div class="splash" *ngSwitchCase="'SPLASH'">
+            <div class="title"><img class="pulse-faint test-hero-badge" src="assets/images/number-test.png" />
+              <h1>Number Memory Test</h1>
+            </div>
+            <div class="test-main instructions">
+              <p class="can-collapse">The average person can remember 7 numbers at once.</p>
+              <p class="can-collapse">What's the longest number you can memorize?</p>
+              <!--<div><a class="button start" (click)="nextQuestion()">START</a></div>-->
+              <div><button ion-button large outline class="start" (click)="nextQuestion()" color='light'>START</button></div>
+            </div>
+          </div>
+          <div class="question" *ngSwitchCase="'QUESTION'">
+            <div class="test-center">
+              <div class="big-number" [innerHtml]="currentAnswer"></div>
+              <!--<div class="number-timer-container">-->
+              <!--  <div class="number-timer-bar" hb-timer-bar="test.getDisplayTimer()"></div>-->
+              <!--</div>-->
+            </div>
+          </div>
+          <div class="prompt" *ngSwitchCase="'PROMPT'">
+            <!--<form class="test-center" (ngSubmit)="submitAnswer(userAnswer); $emit(&#39;releasedFocus&#39;)">-->
+            <form class="test-center" (ngSubmit)="submitAnswer(userAnswer)">
+              <div class="call-to-action">What was the number?</div>
+              <!--<div><input hb-focus="" ng-model="userAnswer" pattern="[0-9]*" type="text" /></div>-->
+              <div><ion-input (blur)='submitAnswer()' name='userAnswer' [(ngModel)]="userAnswer" pattern="[0-9]*" type="number"></ion-input></div>
+              <div class="save-hint faint-label"><span>Press enter to submit</span>&nbsp;</div>
+            </form>
+          </div>
+          <div class="showanswer test-center" *ngSwitchCase="'SHOWANSWER'">
+            <div class="answers">
+              <!--<div class="actual-answer" hb-fade="0">-->
+              <div class="actual-answer">
+                <div class="label faint-label">Number</div>
+                <div class="number" [innerHtml]="currentAnswer"></div>
+              </div>
+              <!--<div class="user-answer" hb-fade="300">-->
+              <div class="user-answer">
+                <div class="label faint-label">Your answer</div>
+                <div class="number"><span [innerHtml]="digit" [ngClass]="{wrong: !wasDigitRight(idx)}" *ngFor="let digit of userAnswer.split('');let idx = index"></span></div>
+              </div>
+              <!--<div class="level" hb-fade="600"><span>Level</span> <span class="number" ng-bind="test.level"></span></div>-->
+              <div class="level"><span>Level</span> <span class="number" [innerHtml]="level"></span></div>
+            </div>
+            <!--<div hb-fade="900" ng-switch="test.userAnswer == test.currentAnswer">-->
+            <div [ngSwitch]="userAnswer == currentAnswer">
+              <div *ngSwitchCase="true"><button ion-button large outline color='light' class="next-question" (click)="nextQuestion()">NEXT</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer *ngIf="state == 'SHOWANSWER' && userAnswer != currentAnswer" padding-bottom class='bottom-bar'>
+  <button (click)='dismiss()' ion-button block clear color='light'>Done</button>
+</ion-footer>

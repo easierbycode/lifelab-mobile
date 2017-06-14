@@ -19,8 +19,9 @@ export class Consent {
 
   @ViewChild( 'consentSlider' ) slider: Slides
   
+  // lastSlide = false;
   pages: FirebaseListObservable<any>;
-  sliderOptions = { pager:true };
+  sliderOptions = { pager:false };
   
   constructor(af: AngularFire, public modalCtrl: ModalController, public navCtrl: NavController, public sanitizer: DomSanitizer) {
     this.pages  = af.database.list( 'pages/consentForm' )
@@ -31,8 +32,10 @@ export class Consent {
   }
 
   nextSlide() {
+    // if( this.slider.getActiveIndex() == this.slider.length() - 2 )  this.lastSlide  = true;
+
     if ( this.slider.getActiveIndex() < this.slider.length() - 1 ) {
-      this.slider.slideNext();
+      this.slider.slideNext(); 
     } else {
       this.showSharingOptions();
     }

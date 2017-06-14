@@ -1,18 +1,15 @@
 page-dashboard {
-  // .toolbar-background {
-  //   background-color: #EF9F39;
-  //   border: none;
-  // }
 
-  // .toolbar-title {
-  //   color: #ffffdf;
-  // }
+  [padding] .scroll-content {
+    padding-top: 104px;
+  }
 
   .masthead {
     background: linear-gradient(to bottom, #EF9F39 0%, #c97913 100%);
     // background-color: #EF9F39;
     color: #ffffdf;
     position: absolute;
+    // height: 200px;
     width: 100%;
     left: 0;
     padding-top: 1.3rem;

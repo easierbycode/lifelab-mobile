@@ -8,6 +8,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Login } from '../login/login';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
+import { ConsentDocument } from '../../providers/consent-document';
 
 /*
   Generated class for the SignaturePage page.
@@ -31,7 +32,7 @@ export class Signature {
   };
   
   // constructor(private navCtrl: NavController, private platform: Platform, public push: Push) {
-  constructor(private navCtrl: NavController, private platform: Platform) {
+  constructor(public consent: ConsentDocument, private navCtrl: NavController, private platform: Platform) {
     // push.register().then((t: PushToken) => {
     //   return push.saveToken(t, {ignore_user:true});
     // }).then((t: PushToken) => {
@@ -65,14 +66,15 @@ export class Signature {
   doOnEnd() {
     // will be notified of szimek/signature_pad's onEnd event
     this.signatureData = this.signaturePad.toDataURL();
-    console.log( this.signatureData );
   }
 
   clearSignature() {
     this.signaturePad.clear();
+    this.signatureData  = null;
   }
 
   showLogin() {
+    this.consent.addParticipantSignature( this.signatureData );
     this.navCtrl.setRoot( Login )
   }
 

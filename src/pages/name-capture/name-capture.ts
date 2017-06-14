@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Signature } from '../signature/signature';
+import { ConsentDocument } from '../../providers/consent-document'
 
 /*
   Generated class for the NameCapture page.
@@ -14,13 +15,13 @@ import { Signature } from '../signature/signature';
 })
 export class NameCapture {
 
-  constructor(public navCtrl: NavController) {}
-
-  ionViewDidLoad() {
-    console.log('Hello NameCapture Page');
-  }
-
-  showSignature() {
+  firstName : string;
+  lastName  : string;
+  
+  constructor(public consent: ConsentDocument, public navCtrl: NavController) {}
+  
+  addParticipantNameThenShowSignature( form ) {
+    this.consent.addParticipantName( form.value );
     this.navCtrl.setRoot( Signature );
   }
 

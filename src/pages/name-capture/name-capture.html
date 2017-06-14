@@ -17,22 +17,25 @@
   <ion-slides>
     <ion-slide>
       <ion-list>
+        <form name='nameCaptureForm' #nameCaptureForm='ngForm'>
 
-        <ion-item>
-          <ion-label floating>First name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label floating>First name</ion-label>
+            <ion-input type="text" [(ngModel)]='firstName' name='firstName' required></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label floating>Last name</ion-label>
+            <ion-input type="text" [(ngModel)]='lastName' name='lastName' required></ion-input>
+          </ion-item>
 
-        <ion-item>
-          <ion-label floating>Last name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
+        </form>
       </ion-list>
-
-      <div padding margin-top>
-        <button (click)='showSignature()' ion-button block margin-top>Next</button>
-      </div>
     </ion-slide>
   </ion-slides>
 </ion-content>
+
+<ion-footer padding-bottom class='bottom-bar'>
+  <button [disabled]='!nameCaptureForm.valid' (click)='addParticipantNameThenShowSignature( nameCaptureForm )' ion-button block>Next</button>
+  <!--<button (click)='consent.addParticipantName( nameCaptureForm.value )' ion-button block>Next</button>-->
+</ion-footer>

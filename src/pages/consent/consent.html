@@ -25,10 +25,10 @@
       <p [innerHTML]="sanitizer.bypassSecurityTrustHtml( page.content )"></p>
 
       <button *ngIf='page.learnMore' (click)='showLearnMoreModal({ learnMoreText:page.learnMore })' ion-button block clear margin-bottom margin-top>Learn more</button>
-      
-      <div padding>
-        <button (click)='nextSlide()' ion-button block>Next</button>
-      </div>
     </ion-slide>
   </ion-slides>
 </ion-content>
+
+<ion-footer padding-bottom class='bottom-bar'>
+  <button (click)='nextSlide()' ion-button block>Next</button>
+</ion-footer>
